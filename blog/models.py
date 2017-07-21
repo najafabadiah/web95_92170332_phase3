@@ -21,10 +21,6 @@ class Post(models.Model):
     def __str__(self):
         return "{0} - {1}".format(self.post_id, self.title)
 
-    @staticmethod
-    def create(blog_id, title, summary, text):
-        return Post.objects.create(blog_id=blog_id, title=title, summary=summary, text=text)
-
 
 class Comment(models.Model):
     post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -33,7 +29,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return "{0} - {1}".format(self.post_id, self.text)
-
-    @staticmethod
-    def create(post_id, text):
-        return Comment.objects.create(post_id=post_id, text=text)

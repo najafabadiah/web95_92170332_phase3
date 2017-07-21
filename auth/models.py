@@ -10,4 +10,4 @@ class Users(models.Model):
     token = models.CharField(max_length=50, default="default")
 
     def __str__(self):
-        return "{0} {1}".format(self.user.first_name, self.username)
+        return "{0} {1}".format(self.user.first_name, self.user.last_name)
